@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')({sigint: true});
-
+// Stablish all different game objects
 const hat = '^';
 const hole = 'O';
 const fieldCharacter = '░';
@@ -32,7 +32,7 @@ class Field {
         playing = false;
         break;
       }
-      // Update the current location
+      // Updates location
       this.field[this.locationY][this.locationX] = pathCharacter;
     }
   }
@@ -91,12 +91,12 @@ class Field {
         field[y][x] = prob > percentage ? fieldCharacter : hole;
       }
     }
-    // Set the "hat" 
+    // Set the hat randomly
     const hatLocation = {
       x: Math.floor(Math.random() * width),
       y: Math.floor(Math.random() * height)
     };
-    // Make sure the "hat" is not at the starting point
+    // Assures the hat's not at the starting point
     while (hatLocation.x === 0 && hatLocation.y === 0) {
       hatLocation.x = Math.floor(Math.random() * width);
       hatLocation.y = Math.floor(Math.random() * height);
